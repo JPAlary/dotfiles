@@ -1,0 +1,72 @@
+[user]
+	name = Jean-Pierre Alary
+	email = %email%
+[alias]
+    amend           = commit --amend -C HEAD
+    br              = branch -v
+    bra             = branch -v -a
+    cat             = cat-file -p
+    ci              = commit -v
+    cia             = commit --amend -C HEAD
+    cim             = commit -m '--'
+    co              = checkout
+    count           = shortlog -sn
+    d               = diff
+    ds              = diff --staged
+    fix             = "!bash -c 'if [[ $1 ]]; then git ci --fixup=$1; else git ci --fixup=HEAD; fi;' -"
+    fixup           = "!bash -c 'if [[ $1 ]]; then git ci --fixup=$1; else git ci --fixup=HEAD; fi;' -"
+    last            = log -1 HEAD
+    lg              = log --graph --pretty=tformat:'%Cred%h%Creset -%C(cyan)%d %Creset%s %Cgreen(%an %cr)%Creset' --abbrev-commit --date=relative
+    lga             = log --graph --pretty=tformat:'%Cred%h%Creset -%C(cyan)%d %Creset%s %Cgreen(%an %cr)%Creset' --abbrev-commit --date=relative --all
+    logfull         = log --pretty=fuller --graph --stat -p
+    purr            = pull --rebase
+    pushf           = push --force-with-lease
+    reba            = rebase --autosquash
+    rebc            = rebase --continue
+    rebi            = rebase --interactive --autosquash
+    rebs            = rebase --skip
+    rebt            = rebase --abort
+    ri              = rebase --interactive --autosquash
+    sq              = "!bash -c 'if [[ $1 ]]; then git ci --squash=$1; else git ci --squash=HEAD; fi;' -"
+    squash          = "!bash -c 'if [[ $1 ]]; then git ci --squash=$1; else git ci --squash=HEAD; fi;' -"
+    st              = status
+    standup         = log --since '1 day ago' --oneline --author %AUTHOR_EMAIL%
+    undo            = reset --soft HEAD^
+    uncommit        = reset --soft HEAD^
+    uncommithard    = reset --hard HEAD^
+    unstage         = reset HEAD
+[branch]
+    autosetupmerge  = true
+    autosetuprebase = always
+[core]
+    autocrlf        = input
+    excludesfile    = ~/.gitignore
+    pager           = less -FRSX
+    whitespace      = space-before-tab,blank-at-eol,tab-in-indent
+[push]
+    default           = simple
+    recurseSubmodules = check
+[rerere]
+    enabled         = 1
+[help]
+    autocorrect     = 1
+[rebase]
+    autostash = true
+[color]
+    # Use colors in Git commands that are capable of colored output when outputting to the terminal
+    ui = auto
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+[diff]
+	compactionHeuristic = 1
